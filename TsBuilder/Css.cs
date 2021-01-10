@@ -7,17 +7,19 @@ namespace TsBuilder
 {
     public static class Css
     {
-        public static async Task<bool> BundleAsync(List<BundleEntry> entrys)
+        public static List<BundleEntry> GetEntrys(List<BundleEntry> entrys)
         {
-            try
+            var result = new List<BundleEntry>();
+
+            foreach (var entry in entrys)
             {
-                return await Bundler.BundleAsync(entrys);
+                if (entry.OutputFile.IndexOf(".css") > -1)
+                {
+                    result.Add(entry);
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error while bundling css: {0}", e.Message);
-                return false;
-            }
+
+            return result;
         }
     }
 }

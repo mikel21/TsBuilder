@@ -11,17 +11,19 @@ namespace TsBuilder
 {
     public static class Typescript
     {
-        public static async Task<bool> BundleAsync(List<BundleEntry> entrys)
+        public static List<BundleEntry> GetEntrys(List<BundleEntry> entrys)
         {
-            try
+            var result = new List<BundleEntry>();
+
+            foreach (var entry in entrys)
             {
-                return await Bundler.BundleAsync(entrys);
+                if (entry.OutputFile.IndexOf(".ts") > -1)
+                {
+                    result.Add(entry);
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error while bundling ts: {0}", e.Message);
-                return false;
-            }
+
+            return result;
         }
 
         public static async Task<bool> CompileAsync(EnvironmentType environment)
