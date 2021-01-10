@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>dotnet-tsbundle</AssemblyName>
+    <PackageId>TsCssBuilder</PackageId>
+    <PackageVersion>1.0.3</PackageVersion>
+    <Authors>Nick Kazakov</Authors>
+    <PackageType>DotnetCliTool</PackageType>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Utf8Json" Version="1.3.7" />
+  </ItemGroup>
+  
+</Project>
